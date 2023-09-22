@@ -1,5 +1,6 @@
-import { NavLink } from 'react-router-dom';
-
+import { Link, NavLink } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Header = () => {
 	const links = (
 		<>
@@ -19,6 +20,7 @@ const Header = () => {
 	);
 	return (
 		<div>
+			<ToastContainer />
 			<div className="container navbar bg-base-100 mt-12">
 				<div className="navbar-start">
 					<div className="dropdown">
@@ -54,7 +56,7 @@ const Header = () => {
 				</div>
 				<div className="navbar-end">
 					<button className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF] px-7 py-2 rounded-md text-white font-semibold">
-						<NavLink to="/applied">Start Applying</NavLink>
+						<Link to="/applied">Start Applying</Link>
 					</button>
 				</div>
 			</div>

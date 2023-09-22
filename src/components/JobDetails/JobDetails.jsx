@@ -1,6 +1,8 @@
 import { useLoaderData, useParams } from 'react-router-dom';
 import PageHeading from '../PageHeading/PageHeading';
 import { Icon } from '@iconify/react';
+import { setJobIdInLS } from '../../Utils/localStorageDb';
+import { toast } from 'react-toastify';
 const JobDetails = () => {
 	const data = useLoaderData();
 	console.log(data);
@@ -9,6 +11,7 @@ const JobDetails = () => {
 	const job = data.find(job => job.id === Number(params.jobId));
 	console.log(job);
 	const {
+		id,
 		salary,
 		job_title,
 		contact_information,
@@ -16,10 +19,10 @@ const JobDetails = () => {
 		experiences,
 		job_description,
 		job_responsibility,
-		job_type,
-		location,
-		remote_or_onsite,
-		company_name,
+		// job_type,
+		// location,
+		// remote_or_onsite,
+		// company_name,
 	} = job;
 	const { address, email, phone } = contact_information;
 	return (
@@ -87,7 +90,15 @@ const JobDetails = () => {
 						</div>
 					</div>
 					<div className="mt-6">
-						<button className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF] px-7 py-2 rounded-md text-white font-semibold w-full">
+						<button
+							className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF] px-7 py-2 rounded-md text-white font-semibold w-full"
+							onClick={() => {
+								const res = setJobIdInLS(id);
+								res
+									? toast.success('Application submitted successfully')
+									: toast.error('You already have an application');
+							}}
+						>
 							Apply Now
 						</button>
 					</div>
