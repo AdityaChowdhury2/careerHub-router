@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
@@ -15,12 +14,12 @@ const AppliedJobCard = ({ job }) => {
 		job_type,
 	} = job;
 	return (
-		<div className="flex justify-between items-center p-8 border rounded-lg">
-			<div className="flex gap-8">
-				<div className="bg-gray-200 flex justify-center items-center px-12 rounded-md">
+		<div className="flex flex-col lg:flex-row gap-4 justify-between items-center p-8 border rounded-lg">
+			<div className="flex flex-col lg:flex-row gap-8">
+				<div className="lg:bg-gray-200 flex justify-center items-center px-12 rounded-md">
 					<img src={logo} alt="" className="w-36" />
 				</div>
-				<div className="card-body">
+				<div className="card-body p-2 lg:p-8">
 					<h2 className="card-title">{job_title}</h2>
 					<p className="text-gray-500 font-semibold">{company_name}</p>
 					<div className="my-3 space-x-6">

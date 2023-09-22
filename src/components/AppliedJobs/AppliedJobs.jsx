@@ -1,17 +1,16 @@
-import { useLoaderData, useNavigation } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import PageHeading from '../PageHeading/PageHeading';
 import { useEffect, useState } from 'react';
 import { getJobIdsFromLS } from '../../Utils/localStorageDb';
 import AppliedJobCard from '../AppliedJobCard/AppliedJobCard';
 import { Icon } from '@iconify/react';
+import Spinner from '../Spinner/Spinner';
 
 const AppliedJobs = () => {
 	const jobs = useLoaderData();
 	const [appliedJobs, setAppliedJobs] = useState([]);
 	const [displayJobs, setDisplayJobs] = useState([]);
 	// console.log(jobs);
-	// const navigation = useNavigation();
-	// console.log(navigation);
 	const handleJobsFilter = filter => {
 		if (filter === 'All') {
 			setDisplayJobs(appliedJobs);
@@ -39,45 +38,51 @@ const AppliedJobs = () => {
 			// 	}
 			// }
 			const appliedJobs = jobs.filter(job => appliedJobIds.includes(job.id));
-			console.log(appliedJobs);
 			setAppliedJobs(appliedJobs);
 			setDisplayJobs(appliedJobs);
 		}
 	}, [jobs]);
+
 	return (
-		<div className="">
+		<div className="px-3">
 			<PageHeading title="Applied Jobs" />
-			<div className="container">
-				<div className="flex justify-end my-5">
-					<div className="dropdown dropdown-hover dropdown-end">
-						<label tabIndex={0} className="btn m-1">
-							Filter By
-							<Icon icon="iconoir:nav-arrow-down" height={20} />
-						</label>
-						<ul
-							tabIndex={0}
-							className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-						>
-							<li onClick={() => handleJobsFilter('All')}>
-								<a>All</a>
-							</li>
+			{displayJobs?.length ? (
+				<div className="container">
+					<div className="flex justify-end my-5">
+						<div className="dropdown dropdown-hover dropdown-end">
+							<label tabIndex={0} className="btn m-1">
+								Filter By
+								<Icon icon="iconoir:nav-arrow-down" height={20} />
+							</label>
+							<ul
+								tabIndex={0}
+								className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+							>
+								<li onClick={() => handleJobsFilter('All')}>
+									<a>All</a>
+								</li>
 
-							<li onClick={() => handleJobsFilter('Remote')}>
-								<a>Remote</a>
-							</li>
+								<li onClick={() => handleJobsFilter('Remote')}>
+									<a>Remote</a>
+								</li>
 
-							<li onClick={() => handleJobsFilter('Onsite')}>
-								<a>Onsite</a>
-							</li>
-						</ul>
+								<li onClick={() => handleJobsFilter('Onsite')}>
+									<a>Onsite</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div className="space-y-6 my-16">
+						{displayJobs?.map(job => (
+							<AppliedJobCard job={job} key={job.id} />
+						))}
 					</div>
 				</div>
-				<div className="space-y-6 my-16">
-					{displayJobs?.map(job => (
-						<AppliedJobCard job={job} key={job.id} />
-					))}
+			) : (
+				<div className="flex justify-center min-h-[60vh]">
+					<Spinner />
 				</div>
-			</div>
+			)}
 		</div>
 	);
 };

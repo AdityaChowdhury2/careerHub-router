@@ -1,0 +1,6 @@
+.active{
+    background-image: linear-gradient(to right, #7E90FE,#9873FF);
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

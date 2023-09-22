@@ -28,7 +28,7 @@ const JobDetails = () => {
 	return (
 		<div className="">
 			<PageHeading title="Job Details" />
-			<div className="grid grid-cols-1 lg:grid-cols-12 container my-32 gap-6 px-5 lg:px-2">
+			<div className="grid grid-cols-1 lg:grid-cols-12 container my-32 gap-12 px-5 lg:px-2">
 				<div className="lg:col-span-8 text-justify">
 					<p className="text-gray-500">
 						<span className="font-bold text-black">Job Description: </span>
