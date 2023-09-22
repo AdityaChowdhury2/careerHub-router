@@ -18,8 +18,8 @@ const Header = () => {
 		</>
 	);
 	return (
-		<>
-			<div className="container navbar bg-base-100">
+		<div>
+			<div className="container navbar bg-base-100 mt-12">
 				<div className="navbar-start">
 					<div className="dropdown">
 						<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -58,7 +58,7 @@ const Header = () => {
 					</button>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 

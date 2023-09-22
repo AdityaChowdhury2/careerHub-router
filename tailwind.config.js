@@ -8,7 +8,13 @@ export default {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-upper-background': "url('/bg2.png')",
+        'hero-footer-background': "url('/bg1.png')",
+      }
+
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {

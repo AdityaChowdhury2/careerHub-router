@@ -1,6 +1,6 @@
 const Statistics = () => {
 	return (
-		<div>
+		<div className="container">
 			<h1>This is statistics Component</h1>
 		</div>
 	);

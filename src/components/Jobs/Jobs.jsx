@@ -1,6 +1,6 @@
 const Jobs = () => {
 	return (
-		<div>
+		<div className="container">
 			<h1>This is job Component</h1>
 		</div>
 	);
