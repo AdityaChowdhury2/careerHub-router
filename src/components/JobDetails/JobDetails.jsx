@@ -44,19 +44,27 @@ const JobDetails = () => {
 					<p className="text-gray-500">{experiences}</p>
 				</div>
 				<div className="lg:col-span-4 ">
-					<div className="p-7 bg-gradient-to-r from-[#7E90FE] to-[#9873FF] bg-slate-100 bg-blend-overlay rounded-lg ">
+					<div className="p-3 md:p-7 bg-gradient-to-r from-[#7E90FE] to-[#9873FF] bg-slate-100 bg-blend-overlay rounded-lg ">
 						<h4 className="font-bold">Job Details</h4>
 						<div className="divider"></div>
 						<div className="space-y-4">
-							<div className="flex items-center gap-2">
-								<Icon icon="solar:dollar-linear" color="#7e90fe" height="20" />
-								<p className="text-gray-500">
+							<div className="flex items-center gap-2 text-sm md:text-base">
+								<Icon
+									icon="solar:dollar-linear"
+									color="#7e90fe"
+									className="md:h-5 md:w-5"
+								/>
+								<p className="text-gray-500 ">
 									<span className="font-semibold text-black">Salary : </span>{' '}
 									{salary} (Per Month)
 								</p>
 							</div>
-							<div className="flex items-center gap-2">
-								<Icon icon="ion:calendar-outline" color="#7e90fe" height="20" />
+							<div className="flex items-center gap-2 text-sm md:text-base">
+								<Icon
+									icon="ion:calendar-outline"
+									color="#7e90fe"
+									className="md:h-5 md:w-5"
+								/>
 								<p className="text-gray-500">
 									<span className="font-semibold text-black">Job Title : </span>{' '}
 									{job_title}
@@ -66,22 +74,36 @@ const JobDetails = () => {
 						<h4 className="font-bold mt-8">Contact Information</h4>
 						<div className="divider"></div>
 						<div className="space-y-4">
-							<div className="flex items-center gap-2">
-								<Icon icon="solar:phone-outline" color="#7e90fe" height="20" />
+							<div className="flex items-center gap-2 text-sm md:text-base">
+								<Icon
+									icon="solar:phone-outline"
+									color="#7e90fe"
+									className="md:h-5 md:w-5"
+								/>
 								<p className="text-gray-500">
 									<span className="font-semibold text-black">Phone : </span>{' '}
 									{phone}
 								</p>
 							</div>
-							<div className="flex items-center gap-2">
-								<Icon icon="mdi-light:email" color="#7e90fe" height="20" />
+							<div className="flex items-center gap-2 text-sm md:text-base">
+								<Icon
+									icon="mdi-light:email"
+									color="#7e90fe"
+									className="md:h-5 md:w-5"
+								/>
 								<p className="text-gray-500">
 									<span className="font-semibold text-black">Email : </span>{' '}
 									{email}
 								</p>
 							</div>
-							<div className="flex items-center  gap-2 lg:items-start">
-								<Icon icon="codicon:location" color="#7e90fe" height="32" />
+							<div className="flex items-start md:items-center gap-2 text-sm md:text-base">
+								<Icon
+									icon="ion:location-outline"
+									color="#7e90fe"
+									height="20"
+									className="md:w-5"
+								/>
+
 								<p className="text-gray-500">
 									<span className="font-semibold text-black">Address: </span>{' '}
 									{address}
